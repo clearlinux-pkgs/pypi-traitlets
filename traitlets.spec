@@ -4,7 +4,7 @@
 #
 Name     : traitlets
 Version  : 4.3.2
-Release  : 13
+Release  : 14
 URL      : http://pypi.debian.net/traitlets/traitlets-4.3.2.tar.gz
 Source0  : http://pypi.debian.net/traitlets/traitlets-4.3.2.tar.gz
 Summary  : Traitlets Python config system
