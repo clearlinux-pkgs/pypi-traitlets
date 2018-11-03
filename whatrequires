@@ -1,13 +1,7 @@
 # This file contains recursive sources that require this package
-bash_kernel
 ipykernel
 ipython
-ipython-sql
-jupyter
-jupyter-notebook-gist
 jupyter_client
 jupyter_core
-jupyterlab
-jupyterlab_launcher
 nbsphinx
 notebook

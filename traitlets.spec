@@ -4,32 +4,37 @@
 #
 Name     : traitlets
 Version  : 4.3.2
-Release  : 19
+Release  : 20
 URL      : http://pypi.debian.net/traitlets/traitlets-4.3.2.tar.gz
 Source0  : http://pypi.debian.net/traitlets/traitlets-4.3.2.tar.gz
 Summary  : Traitlets Python config system
 Group    : Development/Tools
 License  : BSD-3-Clause-Clear
-Requires: traitlets-python3
-Requires: traitlets-python
+Requires: traitlets-license = %{version}-%{release}
+Requires: traitlets-python = %{version}-%{release}
+Requires: traitlets-python3 = %{version}-%{release}
 Requires: Sphinx
 Requires: ipython_genutils
 Requires: sphinx_rtd_theme
-BuildRequires : pbr
-BuildRequires : pip
-
-BuildRequires : python3-dev
-BuildRequires : setuptools
+BuildRequires : buildreq-distutils3
 
 %description
 # Traitlets
 [![Build Status](https://travis-ci.org/ipython/traitlets.svg?branch=master)](https://travis-ci.org/ipython/traitlets)
 [![Documentation Status](https://readthedocs.org/projects/traitlets/badge/?version=latest)](http://traitlets.readthedocs.org/en/latest/?badge=latest)
 
+%package license
+Summary: license components for the traitlets package.
+Group: Default
+
+%description license
+license components for the traitlets package.
+
+
 %package python
 Summary: python components for the traitlets package.
 Group: Default
-Requires: traitlets-python3
+Requires: traitlets-python3 = %{version}-%{release}
 
 %description python
 python components for the traitlets package.
@@ -52,18 +57,24 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523309728
-python3 setup.py build -b py3
+export SOURCE_DATE_EPOCH=1541280544
+python3 setup.py build
 
 %install
 rm -rf %{buildroot}
-python3 -tt setup.py build -b py3 install --root=%{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/traitlets
+cp COPYING.md %{buildroot}/usr/share/package-licenses/traitlets/COPYING.md
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/traitlets/COPYING.md
 
 %files python
 %defattr(-,root,root,-)
