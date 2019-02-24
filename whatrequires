@@ -3,5 +3,6 @@ ipykernel
 ipython
 jupyter_client
 jupyter_core
+nbconvert
 nbsphinx
 notebook

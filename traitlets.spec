@@ -4,7 +4,7 @@
 #
 Name     : traitlets
 Version  : 4.3.2
-Release  : 21
+Release  : 23
 URL      : http://pypi.debian.net/traitlets/traitlets-4.3.2.tar.gz
 Source0  : http://pypi.debian.net/traitlets/traitlets-4.3.2.tar.gz
 Summary  : Traitlets Python config system
@@ -13,9 +13,6 @@ License  : BSD-3-Clause-Clear
 Requires: traitlets-license = %{version}-%{release}
 Requires: traitlets-python = %{version}-%{release}
 Requires: traitlets-python3 = %{version}-%{release}
-Requires: Sphinx
-Requires: ipython_genutils
-Requires: sphinx_rtd_theme
 BuildRequires : buildreq-distutils3
 
 %description
@@ -57,7 +54,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1541280544
+export SOURCE_DATE_EPOCH=1551026003
+export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
 %install
