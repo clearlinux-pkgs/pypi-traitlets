@@ -4,16 +4,21 @@
 #
 Name     : traitlets
 Version  : 4.3.2
-Release  : 25
-URL      : http://pypi.debian.net/traitlets/traitlets-4.3.2.tar.gz
-Source0  : http://pypi.debian.net/traitlets/traitlets-4.3.2.tar.gz
+Release  : 26
+URL      : https://files.pythonhosted.org/packages/a5/98/7f5ef2fe9e9e071813aaf9cb91d1a732e0a68b6c44a32b38cb8e14c3f069/traitlets-4.3.2.tar.gz
+Source0  : https://files.pythonhosted.org/packages/a5/98/7f5ef2fe9e9e071813aaf9cb91d1a732e0a68b6c44a32b38cb8e14c3f069/traitlets-4.3.2.tar.gz
 Summary  : Traitlets Python config system
 Group    : Development/Tools
 License  : BSD-3-Clause-Clear
 Requires: traitlets-license = %{version}-%{release}
 Requires: traitlets-python = %{version}-%{release}
 Requires: traitlets-python3 = %{version}-%{release}
+Requires: decorator
+Requires: ipython_genutils
+Requires: six
 BuildRequires : buildreq-distutils3
+BuildRequires : decorator
+BuildRequires : six
 
 %description
 # Traitlets
@@ -53,12 +58,18 @@ python3 components for the traitlets package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1551026003
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1566342114
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
 %install
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/traitlets
 cp COPYING.md %{buildroot}/usr/share/package-licenses/traitlets/COPYING.md

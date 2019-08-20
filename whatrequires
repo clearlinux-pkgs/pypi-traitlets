@@ -6,3 +6,4 @@ jupyter_core
 nbconvert
 nbsphinx
 notebook
+qtconsole
