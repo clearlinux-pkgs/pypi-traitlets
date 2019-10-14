@@ -4,7 +4,7 @@
 #
 Name     : traitlets
 Version  : 4.3.3
-Release  : 27
+Release  : 28
 URL      : https://files.pythonhosted.org/packages/75/b0/43deb021bc943f18f07cbe3dac1d681626a48997b7ffa1e7fb14ef922b21/traitlets-4.3.3.tar.gz
 Source0  : https://files.pythonhosted.org/packages/75/b0/43deb021bc943f18f07cbe3dac1d681626a48997b7ffa1e7fb14ef922b21/traitlets-4.3.3.tar.gz
 Summary  : Traitlets Python config system
@@ -14,12 +14,10 @@ Requires: traitlets-license = %{version}-%{release}
 Requires: traitlets-python = %{version}-%{release}
 Requires: traitlets-python3 = %{version}-%{release}
 Requires: decorator
-Requires: enum34
 Requires: ipython_genutils
 Requires: six
 BuildRequires : buildreq-distutils3
 BuildRequires : decorator
-BuildRequires : enum34
 BuildRequires : six
 
 %description
@@ -61,8 +59,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1570908123
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1571088936
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
@@ -75,7 +72,7 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/traitlets
-cp COPYING.md %{buildroot}/usr/share/package-licenses/traitlets/COPYING.md
+cp %{_builddir}/traitlets-4.3.3/COPYING.md %{buildroot}/usr/share/package-licenses/traitlets/42f5ceb01d59f395d5376b6a6e2af3a99ea0873f
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -86,7 +83,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/traitlets/COPYING.md
+/usr/share/package-licenses/traitlets/42f5ceb01d59f395d5376b6a6e2af3a99ea0873f
 
 %files python
 %defattr(-,root,root,-)
