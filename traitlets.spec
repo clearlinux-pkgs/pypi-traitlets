@@ -4,7 +4,7 @@
 #
 Name     : traitlets
 Version  : 4.3.3
-Release  : 31
+Release  : 32
 URL      : https://files.pythonhosted.org/packages/75/b0/43deb021bc943f18f07cbe3dac1d681626a48997b7ffa1e7fb14ef922b21/traitlets-4.3.3.tar.gz
 Source0  : https://files.pythonhosted.org/packages/75/b0/43deb021bc943f18f07cbe3dac1d681626a48997b7ffa1e7fb14ef922b21/traitlets-4.3.3.tar.gz
 Summary  : Traitlets Python config system
@@ -21,9 +21,7 @@ BuildRequires : decorator
 BuildRequires : six
 
 %description
-# Traitlets
-[![Build Status](https://travis-ci.org/ipython/traitlets.svg?branch=master)](https://travis-ci.org/ipython/traitlets)
-[![Documentation Status](https://readthedocs.org/projects/traitlets/badge/?version=latest)](http://traitlets.readthedocs.org/en/latest/?badge=latest)
+A configuration system for Python applications.
 
 %package license
 Summary: license components for the traitlets package.
@@ -46,6 +44,7 @@ python components for the traitlets package.
 Summary: python3 components for the traitlets package.
 Group: Default
 Requires: python3-core
+Provides: pypi(traitlets)
 
 %description python3
 python3 components for the traitlets package.
@@ -53,13 +52,15 @@ python3 components for the traitlets package.
 
 %prep
 %setup -q -n traitlets-4.3.3
+cd %{_builddir}/traitlets-4.3.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571088936
+export SOURCE_DATE_EPOCH=1582908430
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "

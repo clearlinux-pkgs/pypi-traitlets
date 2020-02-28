@@ -4,6 +4,7 @@ ipython
 jupyter_client
 jupyter_core
 nbconvert
+nbformat
 nbsphinx
 notebook
 qtconsole
