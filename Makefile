@@ -1,5 +1,5 @@
 PKG_NAME := traitlets
-URL = https://files.pythonhosted.org/packages/d5/bc/37d490908e7ac949614d62767db3c86f37bc5adb6129d378c35859a75b87/traitlets-5.1.0.tar.gz
+URL = https://files.pythonhosted.org/packages/db/cf/e6cbf07ce2d21a17c8379f3f2f12db413a38da5ee20809638226b1490e48/traitlets-5.1.1.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
