@@ -1,12 +1,4 @@
 # This file contains recursive sources that require this package
-ipykernel
-ipython
-jupyter_client
 jupyter_core
-jupyter_server
 matplotlib-inline
-nbclient
-nbconvert
 nbformat
-notebook
-qtconsole

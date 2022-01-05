@@ -4,7 +4,7 @@
 #
 Name     : traitlets
 Version  : 5.1.1
-Release  : 53
+Release  : 54
 URL      : https://files.pythonhosted.org/packages/db/cf/e6cbf07ce2d21a17c8379f3f2f12db413a38da5ee20809638226b1490e48/traitlets-5.1.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/db/cf/e6cbf07ce2d21a17c8379f3f2f12db413a38da5ee20809638226b1490e48/traitlets-5.1.1.tar.gz
 Summary  : Traitlets Python configuration system
@@ -17,8 +17,8 @@ Requires: decorator
 Requires: ipython_genutils
 Requires: six
 BuildRequires : buildreq-distutils3
-BuildRequires : decorator
-BuildRequires : six
+BuildRequires : pypi(setuptools)
+BuildRequires : pypi(wheel)
 
 %description
 # Traitlets
@@ -62,21 +62,21 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1635194987
+export SOURCE_DATE_EPOCH=1641422616
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
 export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
-python3 setup.py build
+python3 -m build --wheel --skip-dependency-check --no-isolation
 
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/traitlets
 cp %{_builddir}/traitlets-5.1.1/COPYING.md %{buildroot}/usr/share/package-licenses/traitlets/42f5ceb01d59f395d5376b6a6e2af3a99ea0873f
-python3 -tt setup.py build  install --root=%{buildroot}
+pip install --root=%{buildroot} --no-deps --ignore-installed dist/*.whl
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
