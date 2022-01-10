@@ -4,7 +4,7 @@
 #
 Name     : pypi-traitlets
 Version  : 5.1.1
-Release  : 55
+Release  : 56
 URL      : https://files.pythonhosted.org/packages/db/cf/e6cbf07ce2d21a17c8379f3f2f12db413a38da5ee20809638226b1490e48/traitlets-5.1.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/db/cf/e6cbf07ce2d21a17c8379f3f2f12db413a38da5ee20809638226b1490e48/traitlets-5.1.1.tar.gz
 Summary  : Traitlets Python configuration system
@@ -13,9 +13,9 @@ License  : BSD-3-Clause-Clear
 Requires: pypi-traitlets-license = %{version}-%{release}
 Requires: pypi-traitlets-python = %{version}-%{release}
 Requires: pypi-traitlets-python3 = %{version}-%{release}
-Requires: decorator
 Requires: ipython_genutils
-Requires: six
+Requires: pypi(decorator)
+Requires: pypi(six)
 BuildRequires : buildreq-distutils3
 BuildRequires : pypi(setuptools)
 BuildRequires : pypi(wheel)
@@ -62,7 +62,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641598071
+export SOURCE_DATE_EPOCH=1641841705
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
