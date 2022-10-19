@@ -1,5 +1,5 @@
 PKG_NAME := pypi-traitlets
-URL = https://files.pythonhosted.org/packages/a2/4d/1f59a77fba6e8e9feea7a168652030564089d66c06492ba5670e73b0e078/traitlets-5.4.0.tar.gz
+URL = https://files.pythonhosted.org/packages/dd/a8/278742d17c9e95ccb0dcb86ae216df114d2166d88e72f42b60a7b58b600b/traitlets-5.5.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
