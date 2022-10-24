@@ -4,7 +4,7 @@
 #
 Name     : pypi-traitlets
 Version  : 5.5.0
-Release  : 67
+Release  : 68
 URL      : https://files.pythonhosted.org/packages/dd/a8/278742d17c9e95ccb0dcb86ae216df114d2166d88e72f42b60a7b58b600b/traitlets-5.5.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/dd/a8/278742d17c9e95ccb0dcb86ae216df114d2166d88e72f42b60a7b58b600b/traitlets-5.5.0.tar.gz
 Summary  : No detailed summary available
