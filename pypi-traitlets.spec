@@ -4,13 +4,14 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-traitlets
-Version  : 5.10.0
-Release  : 76
-URL      : https://files.pythonhosted.org/packages/1a/19/381eb24d3bf6d3038bfd63263e2456fd1334d5a93d5f3953de6f06b276b5/traitlets-5.10.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/1a/19/381eb24d3bf6d3038bfd63263e2456fd1334d5a93d5f3953de6f06b276b5/traitlets-5.10.0.tar.gz
+Version  : 5.10.1
+Release  : 77
+URL      : https://files.pythonhosted.org/packages/3a/ae/362f1733cbd3160771fa059beb0e2bdab442b7065e7651465b01bc5e4ffa/traitlets-5.10.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/3a/ae/362f1733cbd3160771fa059beb0e2bdab442b7065e7651465b01bc5e4ffa/traitlets-5.10.1.tar.gz
 Summary  : Traitlets Python configuration system
 Group    : Development/Tools
 License  : BSD-3-Clause
+Requires: pypi-traitlets-license = %{version}-%{release}
 Requires: pypi-traitlets-python = %{version}-%{release}
 Requires: pypi-traitlets-python3 = %{version}-%{release}
 Requires: pypi(decorator)
@@ -27,6 +28,14 @@ BuildRequires : pypi(hatchling)
 [![Tests](https://github.com/ipython/traitlets/actions/workflows/tests.yml/badge.svg)](https://github.com/ipython/traitlets/actions/workflows/tests.yml)
 [![Documentation Status](https://readthedocs.org/projects/traitlets/badge/?version=latest)](https://traitlets.readthedocs.io/en/latest/?badge=latest)
 [![Tidelift](https://tidelift.com/subscription/pkg/pypi-traitlets)](https://tidelift.com/badges/package/pypi/traitlets)
+
+%package license
+Summary: license components for the pypi-traitlets package.
+Group: Default
+
+%description license
+license components for the pypi-traitlets package.
+
 
 %package python
 Summary: python components for the pypi-traitlets package.
@@ -48,10 +57,10 @@ python3 components for the pypi-traitlets package.
 
 
 %prep
-%setup -q -n traitlets-5.10.0
-cd %{_builddir}/traitlets-5.10.0
+%setup -q -n traitlets-5.10.1
+cd %{_builddir}/traitlets-5.10.1
 pushd ..
-cp -a traitlets-5.10.0 buildavx2
+cp -a traitlets-5.10.1 buildavx2
 popd
 
 %build
@@ -59,7 +68,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1694707643
+export SOURCE_DATE_EPOCH=1695743882
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
@@ -80,6 +89,8 @@ popd
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/pypi-traitlets
+cp %{_builddir}/traitlets-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-traitlets/a1852123e23e95de9d76286a31888499d2f31dce || :
 pip install --root=%{buildroot} --no-deps --ignore-installed dist/*.whl
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -96,6 +107,10 @@ popd
 
 %files
 %defattr(-,root,root,-)
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/pypi-traitlets/a1852123e23e95de9d76286a31888499d2f31dce
 
 %files python
 %defattr(-,root,root,-)
