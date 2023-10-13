@@ -5,7 +5,7 @@
 #
 Name     : pypi-traitlets
 Version  : 5.11.2
-Release  : 79
+Release  : 80
 URL      : https://files.pythonhosted.org/packages/88/ec/5c4baa341ab8da0c7a9e70bf5bafe5aaeb0ff7c6f0cc84b2cf2a43b00cc6/traitlets-5.11.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/88/ec/5c4baa341ab8da0c7a9e70bf5bafe5aaeb0ff7c6f0cc84b2cf2a43b00cc6/traitlets-5.11.2.tar.gz
 Summary  : Traitlets Python configuration system
