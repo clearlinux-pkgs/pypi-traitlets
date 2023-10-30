@@ -6,10 +6,10 @@
 # autospec commit: 250a666
 #
 Name     : pypi-traitlets
-Version  : 5.12.0
-Release  : 81
-URL      : https://files.pythonhosted.org/packages/cd/8d/1c0df0d3a3d4f6517bb34d6127e7881d40f40e5321f1cbe34f8a4e64a45d/traitlets-5.12.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/cd/8d/1c0df0d3a3d4f6517bb34d6127e7881d40f40e5321f1cbe34f8a4e64a45d/traitlets-5.12.0.tar.gz
+Version  : 5.13.0
+Release  : 82
+URL      : https://files.pythonhosted.org/packages/5a/0b/b825ac58e20a6fef55c94ba9c7c96f1777f9a3b7e34b3b43b6d54185ec2a/traitlets-5.13.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/5a/0b/b825ac58e20a6fef55c94ba9c7c96f1777f9a3b7e34b3b43b6d54185ec2a/traitlets-5.13.0.tar.gz
 Summary  : Traitlets Python configuration system
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -59,10 +59,10 @@ python3 components for the pypi-traitlets package.
 
 
 %prep
-%setup -q -n traitlets-5.12.0
-cd %{_builddir}/traitlets-5.12.0
+%setup -q -n traitlets-5.13.0
+cd %{_builddir}/traitlets-5.13.0
 pushd ..
-cp -a traitlets-5.12.0 buildavx2
+cp -a traitlets-5.13.0 buildavx2
 popd
 
 %build
@@ -70,7 +70,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1698245103
+export SOURCE_DATE_EPOCH=1698683920
 export GCC_IGNORE_WERROR=1
 CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
